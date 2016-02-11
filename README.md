@@ -8,8 +8,7 @@ Smart7ec Scan Console
 
     --1)Web扫描测试
        支持常规web扫描测试，用于新业务上线进行安全检测，巡检。
-
-        -- (1) SQL inject
+	-- (1) SQL inject
 	-- (2) Cross Site Scripting(XSS)
 	-- (3) File inclusion vulnerability（LFI/RFI）
 	-- (4) Directory traversal attacks
