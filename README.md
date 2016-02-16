@@ -45,3 +45,11 @@
     -t, --test           Test scan module is operating normally.
 
     Report bugs to <tangyucong@163.com> 
+
+## 程序依赖
+   
+    * python2.7
+    * pycrypto2.6
+    * ftplib
+    * mysqldb
+
