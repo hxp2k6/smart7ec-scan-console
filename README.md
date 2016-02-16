@@ -32,16 +32,16 @@
 
 ## 程序命令执行
 
-Usage: Smart7ec-scan-console [OPTION] [...] 
+	Usage: Smart7ec-scan-console [OPTION] [...] 
 
-website,System or plugin scanner, you can choose a single, you can complete scanning, perform customized according to personal choice. 
+	website,System or plugin scanner, you can choose a single, you can complete scanning, perform customized according to personal choice. 
 
-  -h, --help           output this message
-  -m, --Scan-mode      Set the scan type(website/system/imploded). 
-  -u, --Scan-modules   Set the scan module, a plurality of modules are ',' divided.
-  -v, --version        output version number.
-  -l, --list           List all of the scanning module.
-  -f, --find           Search scanning module.
-  -t, --test           Test scan module is operating normally.
+  	-h, --help           output this message
+ 	-m, --Scan-mode      Set the scan type(website/system/imploded). 
+  	-u, --Scan-modules   Set the scan module, a plurality of modules are ',' divided.
+  	-v, --version        output version number.
+  	-l, --list           List all of the scanning module.
+  	-f, --find           Search scanning module.
+  	-t, --test           Test scan module is operating normally.
 
-Report bugs to <tangyucong@163.com> 
+	Report bugs to <tangyucong@163.com> 
