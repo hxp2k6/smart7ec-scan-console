@@ -18,8 +18,8 @@
     --2)系统服务层面扫描
 	支持常规的系统服务扫描测试，用于新上线业务系统安全检测。
 	-- (1) FTP Service  [√]
-		1)  Anonymous Logon [√]
-		2)  Weak passwords  [√]
+		1) Anonymous Logon [√]
+		2) Weak passwords  [√]
 	-- (2) MSSQL Service
 	-- (3) MYSQL Service
 	-- (4) SSH Service
