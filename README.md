@@ -52,4 +52,5 @@
     * pycrypto2.6
     * ftplib
     * mysqldb
+    * paramiko-1.7.7.1
 
