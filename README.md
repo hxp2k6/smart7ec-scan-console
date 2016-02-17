@@ -22,7 +22,7 @@
 		2) Weak passwords  [√]
 	-- (2) MSSQL Service
 	-- (3) MYSQL Service
-	-- (4) SSH Service
+	-- (4) SSH Service  [√]
 	-- (5) Telnet Service
 
     --3)集成插件扫描
@@ -53,4 +53,5 @@
     * ftplib
     * mysqldb
     * paramiko-1.7.7.1
+    * ecdsa-0.10
 
