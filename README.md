@@ -21,9 +21,10 @@
 		1) Anonymous Logon [√]
 		2) Weak passwords  [√]
 	-- (2) MSSQL Service
-	-- (3) MYSQL Service
+	-- (3) MYSQL Service  [√]
 	-- (4) SSH Service  [√]
 	-- (5) Telnet Service
+	-- (6) HTTP Service Banner [√]
 
     --3)集成插件扫描
 	支持多钟扫描插件，可以根据自己的需求弹性扩展，插件类型不做过多限制。
