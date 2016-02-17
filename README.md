@@ -20,7 +20,7 @@
 	-- (1) FTP Service  [√]
 		1) Anonymous Logon [√]
 		2) Weak passwords  [√]
-	-- (2) MSSQL Service
+	-- (2) MSSQL Service  [√]
 	-- (3) MYSQL Service  [√]
 	-- (4) SSH Service  [√]
 	-- (5) Telnet Service
@@ -55,4 +55,5 @@
     * mysqldb
     * paramiko-1.7.7.1
     * ecdsa-0.10
+    * pymssql
 
