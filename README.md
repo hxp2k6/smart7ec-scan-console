@@ -47,6 +47,11 @@
 
     Report bugs to <tangyucong@163.com> 
 
+## 编译使用
+
+    make
+    ./Smart7ec-scan-console
+
 ## 程序依赖
    
     * python2.7
@@ -57,3 +62,7 @@
     * ecdsa-0.10
     * pymssql
 
+## 待实现
+
+    1) 有些功能还没实现，比如多进程调用模块。
+    2) 端口扫描联动系统模块调用。
