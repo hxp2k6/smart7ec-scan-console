@@ -32,22 +32,16 @@
 	-- (2) Home directory permissions
 	-- (3) Sensitive documents
 	-- (4) Logon check
-		1) User password lifetime
-		2) Default permissions
 	-- (5) Set up automatic logout
-	-- (6) Mysql configuration
-		1) back_log operating system is the number of connections that can be held in a queue listening.
-		2) the upper limit allowed by MySQL service while the number of sessions.
-		3) each client connection maximum allowable number of errors, if it reaches this limit.
-		4) all open threads.
-		5) each connected to a separate size. Size dynamically increased.
-		6) in order to record a transaction binlog status held by the SQL cache size.
-		7) independent memory table the maximum allowed capacity.
-		8) reorder buffer is used to handle similar sort ORDER BY and GROUP BY queues caused.
-		9) this buffer is to optimize the whole joint (full JOINs non-indexed United) use.
-		10) how many threads we stay in the cache for reuse.
-		11) This allows the application to give the threads system a hint at the same time eager to be given the number of running threads.
-		12) the results of the query cache buffer is often used SELECT and the next time the same query is not executed directly return results.
+	-- (6) Mysql service configuration
+	-- (7) Nginx service configuration
+	-- (8) Garbage clean-up users
+	-- (9) Php service configuration
+	-- (10) Port status
+	-- (11) passwd & shadow permissions
+	-- (12) Ssh service configuration
+	-- (13) System log access restrictions
+	-- (14) Vsftp service configuration
 
     --5)集成插件扫描
 	支持多钟扫描插件，可以根据自己的需求弹性扩展，插件类型不做过多限制。
