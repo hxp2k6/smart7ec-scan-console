@@ -8,23 +8,25 @@
 
     --1)Web层面扫描
 	支持常规web扫描测试，用于新业务上线进行安全检测，巡检。
-	-- (1) SQL inject
-	-- (2) Cross Site Scripting(XSS)
-	-- (3) File inclusion vulnerability（LFI/RFI）
-	-- (4) Directory traversal attacks
-	-- (5) XPath injection
-	-- (6) Code execution
+	-- (1) Web Spider
+	-- (2) SQL inject
+	-- (3) Cross Site Scripting(XSS)
+	-- (4) File inclusion vulnerability（LFI/RFI）
+	-- (5) Directory traversal attacks
+	-- (6) XPath injection
+	-- (7) Code execution
 
     --2)系统服务层面扫描
 	支持常规的系统服务扫描测试，用于新上线业务系统安全检测。
-	-- (1) FTP Service  [√]
+	-- (1) Port Scanner 
+	-- (2) FTP Service  [√]
 		1) Anonymous Logon [√]
 		2) Weak passwords  [√]
-	-- (2) MSSQL Service  [√]
-	-- (3) MYSQL Service  [√]
-	-- (4) SSH Service  [√]
-	-- (5) Telnet Service
-	-- (6) HTTP Service Banner [√]
+	-- (3) MSSQL Service  [√]
+	-- (4) MYSQL Service  [√]
+	-- (5) SSH Service  [√]
+	-- (6) Telnet Service
+	-- (7) HTTP Service Banner [√]
     
     --4)基线配置的安全扫描
         支持系统配置的安全检测，确保当前系统配置处于最优的安全状态。
@@ -55,7 +57,7 @@
     you can complete scanning, perform customized according to personal choice. 
 
     -h, --help           output this message
-    -m, --Scan-mode      Set the scan type(website/system/imploded). 
+    -m, --Scan-mode      Set the scan type(website/system/imploded/baseline). 
     -u, --Scan-modules   Set the scan module, a plurality of modules are ',' divided.
     -v, --version        output version number.
     -l, --list           List all of the scanning module.
