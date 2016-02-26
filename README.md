@@ -25,8 +25,31 @@
 	-- (4) SSH Service  [√]
 	-- (5) Telnet Service
 	-- (6) HTTP Service Banner [√]
+    
+    --4)基线配置的安全扫描
+        支持系统配置的安全检测，确保当前系统配置处于最优的安全状态。
+	-- (1) Banner leakage
+	-- (2) Home directory permissions
+	-- (3) Sensitive documents
+	-- (4) Logon check
+		1) User password lifetime
+		2) Default permissions
+	-- (5) Set up automatic logout
+	-- (6) Mysql configuration
+		1) back_log operating system is the number of connections that can be held in a queue listening.
+		2) the upper limit allowed by MySQL service while the number of sessions.
+		3) each client connection maximum allowable number of errors, if it reaches this limit.
+		4) all open threads.
+		5) each connected to a separate size. Size dynamically increased.
+		6) in order to record a transaction binlog status held by the SQL cache size.
+		7) independent memory table the maximum allowed capacity.
+		8) reorder buffer is used to handle similar sort ORDER BY and GROUP BY queues caused.
+		9) this buffer is to optimize the whole joint (full JOINs non-indexed United) use.
+		10) how many threads we stay in the cache for reuse.
+		11) This allows the application to give the threads system a hint at the same time eager to be given the number of running threads.
+		12) the results of the query cache buffer is often used SELECT and the next time the same query is not executed directly return results.
 
-    --3)集成插件扫描
+    --5)集成插件扫描
 	支持多钟扫描插件，可以根据自己的需求弹性扩展，插件类型不做过多限制。
 	＊ 支持python插件。
 	＊ 支持lua插件。
