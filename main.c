@@ -179,10 +179,10 @@ void test_module(char* scan_mode,char* scan_modules)
 // 2:sys扫描
 // 3:集成扫描
 // 4:基线扫描(未开始)
-void scanner_mode(int mode,char* scan_target)
-{
-	if (mode == 1)
-}
+// void scanner_mode(int mode,char* scan_target)
+// {
+// 	if (mode == 1)
+// }
 
 
 int main(int argc,char *argv[])
