@@ -63,6 +63,7 @@
     -l, --list           List all of the scanning module.
     -f, --find           Search scanning module.
     -t, --test           Test scan module is operating normally.
+    -b, --baseline       localhost configuration baseline testing.(Unix/Linux)
 
     Report bugs to <tangyucong@163.com> 
 
