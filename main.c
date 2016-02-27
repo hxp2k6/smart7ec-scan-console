@@ -215,8 +215,8 @@ void test_module(char* scan_mode,char* scan_modules)
 // 1:web扫描
 // 2:sys扫描
 // 3:集成扫描
-void scanner_mode(int mode,char* scan_target)
-{
+// void scanner_mode(int mode,char* scan_target)
+// {
 	// web扫描
 	// 单纯针对80端口扫描
 	// 1)先爬虫
@@ -242,7 +242,7 @@ void scanner_mode(int mode,char* scan_target)
 	// 再进行web扫描
 	// 最后进行集成插件扫描
 	// if (mode == 4)
-}
+// }
 
 void baseline_testing(void)
 {
