@@ -50,7 +50,7 @@ void str_help(void)
 		"  -m, --scan-mode      Set the scan type(website/system/imploded). \n"
 		"  -u, --scan-modules   Set the scan module, a plurality of modules are ',' divided.\n"
 		"  -v, --version        output version number.\n"
-		"  -l, --list           List all of the scanning module.\n"
+		"  -l, --lmoist           List all of the scanning module.\n"
 		"  -f, --find           Search scanning module.\n"
 		"  -t, --test           Test scan module is operating normally.\n"
 		"  -b, --baseline       localhost configuration baseline testing.(Unix/Linux)\n"
@@ -215,11 +215,34 @@ void test_module(char* scan_mode,char* scan_modules)
 // 1:web扫描
 // 2:sys扫描
 // 3:集成扫描
-// 4:基线扫描(未开始)
-// void scanner_mode(int mode,char* scan_target)
-// {
-// 	if (mode == 1)
-// }
+void scanner_mode(int mode,char* scan_target)
+{
+	// web扫描
+	// 单纯针对80端口扫描
+	// 1)先爬虫
+	// 2)针对爬虫的结果进行扫描测试
+	// 3)将结果存储
+	// if (mode == 1)
+
+	// sys扫描
+	// 单纯针对所有的端口进行扫描
+	// 1)端口扫描
+	// 2)针对对应的端口进行漏洞测试
+	// 3)将结果存储
+	// if (mode == 2)
+
+	// 集成扫描
+	// 单纯的模块测试
+	// 1)测试模块
+	// 2)上传结果
+	// if (mode == 3)
+
+	// 全面扫描
+	// 先进行系统扫描
+	// 再进行web扫描
+	// 最后进行集成插件扫描
+	// if (mode == 4)
+}
 
 void baseline_testing(void)
 {
@@ -317,7 +340,7 @@ int main(int argc,char *argv[])
 		test_module(scan_mode,scan_modules);
 	}
 	// 执行扫描测试
-
+    
 
 	// for (path_index = 0; path_index < 3; path_index++)
 	// {
