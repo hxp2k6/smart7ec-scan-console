@@ -11,6 +11,7 @@ void str_help(void);
 void str_list(void);
 void find_module(char* scan_mode,char* find_modules);
 void test_module(char* scan_mode,char* scan_modules);
+void baseline_testing(void);
 
 char* path[] = {"website","system","imploded","baseline"};
 
@@ -32,6 +33,7 @@ struct option long_options[] = {
    { "scan-modules", 1, NULL, 'u' },
    { "find", 1, NULL, 'f' },
    { "test", 0, NULL, 't' },
+   { "baseline",1,NULL, 'b'},
    { "target", 1, NULL, 'T' },
    { 0, 0, 0, 0},
 };
@@ -51,6 +53,7 @@ void str_help(void)
 		"  -l, --list           List all of the scanning module.\n"
 		"  -f, --find           Search scanning module.\n"
 		"  -t, --test           Test scan module is operating normally.\n"
+		"  -b, --baseline       localhost configuration baseline testing.(Unix/Linux)\n"
 		"  -T, --target         target for scanner.\n"
 		"\n"
 		"Report bugs to <tangyucong@163.com> \n";
@@ -218,11 +221,55 @@ void test_module(char* scan_mode,char* scan_modules)
 // 	if (mode == 1)
 // }
 
+void baseline_testing(void)
+{
+	// 设立基线计分机制
+	float result;
+	// 计算总执行模块数
+	int count_modules = 0;
+	// 计算存在风险的模块数
+	int count_vul_modules = 0;
+	char* this_path;
+	// 路径尾部组合
+	char* path_last = splice("plugins/",splice(path[4],"/"));
+	// 全路径
+	char* path_obj = splice(defpath(),path_last);
+
+	dirp = opendir(path_obj);
+
+	if(dirp != NULL)
+	{
+		while(1)
+		{
+			direntp = readdir(dirp);
+
+			if(direntp == NULL){
+				break;
+			}else if(direntp->d_name[0] != '.'){
+				analyres = (char*)analystr(direntp->d_name);
+
+				// 脚本解析器
+				if (strcmp(analyres,"py")==0){
+					res=(int)verify_python_baseline(path_obj,direntp->d_name);
+					count_modules++;
+					if (res == 1){
+						count_vul_modules++;
+					}
+				}
+			}
+		}
+		closedir(dirp);
+	}
+
+	// 计算最后基线检查得分
+	result = (float)count_vul_modules/count_modules*100;
+	printf("[*] Baseline Testing Result: %.2f%%\n",result);
+}
+
 
 int main(int argc,char *argv[])
 {
 	int teststatus=0;
-
 
 	int input;
 	while((input = getopt_long (argc, argv, short_options, long_options, NULL)) != -1)
@@ -255,6 +302,8 @@ int main(int argc,char *argv[])
 			case 'T':
 				target = optarg;
 				break;
+			case 'b':
+				baseline_testing();
 			break;
 		}
 

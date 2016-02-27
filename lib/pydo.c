@@ -65,6 +65,47 @@ void verify_python_test(char* filepath,char* filename)
 }
 
 /**
+ * 纯基线安全测试的执行(仅用于基线安全测试)
+ * @param  filepath [description]
+ * @param  filename [description]
+ * @return          [description]
+ */
+int verify_python_baseline(char* filepath,char* filename)
+{
+	int res;
+	// 初始化python环境
+	Py_Initialize();
+	PyObject *pModule,*pFunc,*pValue;
+
+	PyRun_SimpleString("import os,sys");
+	PyRun_SimpleString(pyfile_path(filepath));
+
+	pModule = PyImport_Import(PyString_FromString((char*)firstname(filename)));
+
+	// 加载信息定义模块
+	pFunc = PyObject_GetAttrString(pModule, "info");
+	pValue = PyEval_CallObject(pFunc, NULL);
+
+	// 输出模块相关的信息
+	printf("[*] Loading module name: %s \n", getDictString(pValue,"name"));
+	printf("[*] Module severity: %s \n", getDictString(pValue,"severity"));
+	printf("[*] Module create date: %s ,last update date: %s \n",getDictString(pValue,"create_date"),getDictString(pValue,"update_date"));
+
+	Py_CLEAR(pValue);
+	Py_CLEAR(pFunc);
+
+	pFunc = PyObject_GetAttrString(pModule,"verify_print");
+	pValue = PyEval_CallObject(pFunc, NULL);
+	res = PyInt_AsLong(pValue);
+	Py_Finalize();
+
+	Py_CLEAR(pFunc);
+	Py_CLEAR(pValue);
+
+	return res;
+}
+
+/**
  * 执行python插件的安全测试
  * @param  filepath [插件搜索路径]
  * @param  filename [插件名称]
