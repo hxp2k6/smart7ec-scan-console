@@ -12,7 +12,7 @@ void str_list(void);
 void find_module(char* scan_mode,char* find_modules);
 void test_module(char* scan_mode,char* scan_modules);
 
-char* path[] = {"website","system","imploded"};
+char* path[] = {"website","system","imploded","baseline"};
 
 // 当前版本设定
 char* version = "v1.0";
@@ -64,7 +64,7 @@ void str_list(void)
 
 	printf("[*] Loading Plugin List ...\n");
 
-	for (path_index = 0; path_index < 3; path_index++)
+	for (path_index = 0; path_index < 4; path_index++)
 	{
 		char* this_path;
 		// 路径尾部组合
@@ -143,6 +143,21 @@ void test_module(char* scan_mode,char* scan_modules)
 
 	dirp = opendir(path_obj);
 
+	char* modules[99];
+
+	char* splitword = strtok(scan_modules, ",");
+
+	int i = 0;
+	int count = 0;
+
+	while(splitword)
+	{
+		modules[i]=splitword;
+		splitword=strtok(NULL, ",");
+		i++;
+		count++;
+	}
+
 	if(dirp != NULL)
 	{
 		while(1)
@@ -152,16 +167,37 @@ void test_module(char* scan_mode,char* scan_modules)
 			if(direntp == NULL){
 				break;
 			}else if(direntp->d_name[0] != '.'){
-				analyres = (char*)analystr(direntp->d_name);
 
-				// 脚本解析器
-				if (strcmp(analyres,"lua")==0){
-					this_path = splice(path_obj,direntp->d_name);
-					verify_lua_test(this_path);
-					find_status = find_status + 1;
-				}else if (strcmp(analyres,"py")==0){
-					verify_python_test(path_obj,direntp->d_name);
-					find_status = find_status + 1;
+				if (count > 1){
+					for (i=0; i<count; i++){
+						if (strcmp(modules[i],direntp->d_name)==0)
+						{
+							analyres = (char*)analystr(direntp->d_name);
+							// 脚本解析器
+							if (strcmp(analyres,"lua")==0){
+								this_path = splice(path_obj,direntp->d_name);
+								verify_lua_test(this_path);
+								find_status = find_status + 1;
+							}else if (strcmp(analyres,"py")==0){
+								verify_python_test(path_obj,direntp->d_name);
+								find_status = find_status + 1;
+							}
+						}
+					}
+				}else if (count = 1){
+					if (strcmp(modules[0],direntp->d_name)==0)
+					{
+						analyres = (char*)analystr(direntp->d_name);
+						// 脚本解析器
+						if (strcmp(analyres,"lua")==0){
+							this_path = splice(path_obj,direntp->d_name);
+							verify_lua_test(this_path);
+							find_status = find_status + 1;
+						}else if (strcmp(analyres,"py")==0){
+							verify_python_test(path_obj,direntp->d_name);
+							find_status = find_status + 1;
+						}
+					}
 				}
 			}
 		}
@@ -223,15 +259,14 @@ int main(int argc,char *argv[])
 		}
 
 	}
-	// printf("")
 	// 查找模块模式
-	// if (scan_mode != NULL && find_modules != NULL){
-	// 	find_module(scan_mode,find_modules);
-	// }
-	// // 测试模块模式
-	// if (scan_mode != NULL && scan_modules !=NULL && teststatus == 1){
-	// 	test_module(scan_mode,scan_modules);
-	// }
+	if (scan_mode != NULL && find_modules != NULL){
+		find_module(scan_mode,find_modules);
+	}
+	// 测试模块模式
+	if (scan_mode != NULL && scan_modules !=NULL && teststatus == 1){
+		test_module(scan_mode,scan_modules);
+	}
 	// 执行扫描测试
 
 
