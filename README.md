@@ -7,7 +7,7 @@
 ## 功能介绍
 
     --1)Web层面扫描
-	支持常规web扫描测试，用于新业务上线进行安全检测，巡检。
+        支持常规web扫描测试，用于新业务上线进行安全检测，巡检。
 	-- (1) Web Spider
 	-- (2) SQL inject
 	-- (3) Cross Site Scripting(XSS)
@@ -17,7 +17,7 @@
 	-- (7) Code execution
 
     --2)系统服务层面扫描
-	支持常规的系统服务扫描测试，用于新上线业务系统安全检测。
+        支持常规的系统服务扫描测试，用于新上线业务系统安全检测。
 	-- (1) Port Scanner 
 	-- (2) FTP Service  [√]
 		1) Anonymous Logon [√]
