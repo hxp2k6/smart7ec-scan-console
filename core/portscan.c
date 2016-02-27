@@ -32,7 +32,7 @@ int portscan(char* host)
     int iClientLen;
     int iReturn;
  
-    while(SERVER_PORT<3000)
+    while(SERVER_PORT<65534)
     {
         // create server socket
         iSockFd = socket(AF_INET, SOCK_STREAM, 0);

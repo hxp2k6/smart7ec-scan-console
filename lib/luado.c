@@ -6,6 +6,34 @@
 /*the lua interpreter*/
 lua_State* L;
 
+void verify_lua_test(char* filename)
+{
+    // 初始化lua
+    L = lua_open();
+    // 加载lua基础库
+    luaL_openlibs(L);
+    // 加载lua脚本
+    luaL_dofile(L, filename);
+
+    // 加载lua测试脚本的信息函数(info)
+    lua_getglobal(L,"info");
+    lua_call(L, 0, 1);
+    
+    lua_getglobal(L,"msg");
+    int t_idx = lua_gettop(L);
+
+    if (t_idx > 0){
+        lua_pushnil(L);
+        while (lua_next(L,t_idx)!=0)
+        {
+            printf("[*] %s - %s\n",lua_tostring(L,-2),lua_tostring(L,-1));
+            lua_pop(L,1);
+        }
+    }
+
+    lua_close(L);
+}
+
 /**
  * lua脚本安全测试（只返回是否存在）
  * @param  filename [lua脚本路径和文件名称]

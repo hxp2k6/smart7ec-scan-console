@@ -156,10 +156,8 @@ void test_module(char* scan_mode,char* scan_modules)
 
 				// 脚本解析器
 				if (strcmp(analyres,"lua")==0){
-					// this_path = splice(path_obj,direntp->d_name);
-					// printf("Lua loading: %s \n",this_path);
-					// res=(int)verify_lua(this_path,2,"127.0.0.1",80);
-					// printf("Testing Lua result: %d\n",res);
+					this_path = splice(path_obj,direntp->d_name);
+					verify_lua_test(this_path);
 					find_status = find_status + 1;
 				}else if (strcmp(analyres,"py")==0){
 					verify_python_test(path_obj,direntp->d_name);
