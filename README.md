@@ -30,8 +30,8 @@
     
     --4)基线配置的安全扫描
         支持系统配置的安全检测，确保当前系统配置处于最优的安全状态。
-	-- (1) Banner leakage
-	-- (2) Home directory permissions
+	-- (1) Banner leakage  [√]
+	-- (2) Home directory permissions  [√]
 	-- (3) Sensitive documents
 	-- (4) Logon check
 	-- (5) Set up automatic logout
